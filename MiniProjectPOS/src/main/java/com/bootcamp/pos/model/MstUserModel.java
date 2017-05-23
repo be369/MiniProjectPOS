@@ -18,8 +18,8 @@ public class MstUserModel {
 	private String password;
 	private Long roleId;
 	private Long employeeId;
-	private Long createBy;
-	private Date createOn;
+	private Long createdBy;
+	private Date createdOn;
 	private Long modifiedBy;
 	private Date modifiedOn;
 	private Boolean active;
@@ -67,20 +67,20 @@ public class MstUserModel {
 		this.employeeId = employeeId;
 	}
 	
-	@Column(name="CREATE_BY")
-	public Long getCreateBy() {
-		return createBy;
+	@Column(name="CREATED_BY")
+	public Long getCreatedBy() {
+		return createdBy;
 	}
-	public void setCreateBy(Long createBy) {
-		this.createBy = createBy;
+	public void setCreatedBy(Long createdBy) {
+		this.createdBy = createdBy;
 	}
 	
-	@Column(name="CREATE_ON")
-	public Date getCreateOn() {
-		return createOn;
+	@Column(name="CREATED_ON")
+	public Date getCreatedOn() {
+		return createdOn;
 	}
-	public void setCreateOn(Date createOn) {
-		this.createOn = createOn;
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
 	}
 	
 	@Column(name="MODIFIED_BY")

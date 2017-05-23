@@ -1,21 +1,11 @@
-package com.bootcamp.pos.model;
+package com.bootcamp.pos.viewmodel;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
-import javax.persistence.TableGenerator;
+import com.bootcamp.pos.model.MstUserModel;
 
-@Entity
-@Table(name="POS_MST_EMPLOYEE")
-public class MstEmployeeModel {
+public class MstEmployeeViewModel {
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -29,103 +19,139 @@ public class MstEmployeeModel {
 	private Boolean active;
 	private MstUserModel user;
 	
-	@Id
-	@Column(name="ID")
-	@GeneratedValue(strategy=GenerationType.TABLE, generator="MST_EMPLOYEE")
-	@TableGenerator(name="MST_EMPLOYEE", table="POS_MST_SEQUENCE", pkColumnName="SEQUENCE_ID", pkColumnValue="MST_EMPLOYEE", valueColumnName="SEQUENCE_VALUE", allocationSize=1, initialValue=1)
+	//account
+	private Long roleId;
+	private String userName;
+	private String password;
+	
+	//outlet
+	private List<Long> outletId;
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	@Column(name="FIRST_NAME", columnDefinition="varchar(50)", nullable=false)
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
-	@Column(name="LAST_NAME", columnDefinition="varchar(50)", nullable=false)
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	@Column(name="EMAIL", columnDefinition="varchar(50)", nullable=false)
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	@Column(name="TITLE", columnDefinition="varchar(50)")
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
-	@Column(name="HAVE_ACCOUNT", nullable=false)
+
 	public Boolean getHaveAccount() {
 		return haveAccount;
 	}
+
 	public void setHaveAccount(Boolean haveAccount) {
 		this.haveAccount = haveAccount;
 	}
-	
-	@Column(name="CREATED_BY")
-	public Long getCreateBy() {
+
+	public Long getCreatedBy() {
 		return createdBy;
 	}
-	public void setCreateBy(Long createBy) {
-		this.createdBy = createBy;
+
+	public void setCreatedBy(Long createdBy) {
+		this.createdBy = createdBy;
 	}
-	
-	@Column(name="CREATED_ON")
-	public Date getCreateOn() {
+
+	public Date getCreatedOn() {
 		return createdOn;
 	}
-	public void setCreateOn(Date createOn) {
-		this.createdOn = createOn;
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
 	}
-	
-	@Column(name="MODIFIED_BY")
+
 	public Long getModifiedBy() {
 		return modifiedBy;
 	}
+
 	public void setModifiedBy(Long modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
-	
-	@Column(name="MODIFIED_ON")
+
 	public Date getModifiedOn() {
 		return modifiedOn;
 	}
+
 	public void setModifiedOn(Date modifiedOn) {
 		this.modifiedOn = modifiedOn;
 	}
-	
-	@Column(name="active", nullable=false)
+
 	public Boolean getActive() {
 		return active;
 	}
+
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-	
-	@OneToOne(fetch=FetchType.EAGER)
-	@PrimaryKeyJoinColumn
+
 	public MstUserModel getUser() {
 		return user;
 	}
+
 	public void setUser(MstUserModel user) {
 		this.user = user;
-	}	
+	}
+
+	public Long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<Long> getOutletId() {
+		return outletId;
+	}
+
+	public void setOutletId(List<Long> outletId) {
+		this.outletId = outletId;
+	}
 }
