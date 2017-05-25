@@ -49,6 +49,7 @@
 				<value>com.bootcamp.pos.model.MstOutletModel</value>
 				<value>com.bootcamp.pos.model.TrxPrModel</value>
 				<value>com.bootcamp.pos.model.TrxPrDetailModel</value>
+				<value>com.bootcamp.pos.model.MstSupplierModel</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

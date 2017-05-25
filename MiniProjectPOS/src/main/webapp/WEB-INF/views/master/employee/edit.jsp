@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<form id="form-employee" action="" method="POST" class="form">
+<form id="form-employee" action="master/employee/save" method="POST" class="form">
 	<!-- validasi saat save -->
 	<input type="hidden" id="action" name="action" value="update"/>
 	<input type="hidden" id="id" name="id" value="${item.id }"/>

@@ -1,4 +1,5 @@
-<form id="form-category" method="post" class="form-horizontal">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<form id="form-category" action="" method="post" class="form-horizontal">
 
 	<!-- validasi saat save -->
 	<input type="hidden" id="action" name="action" value="insert"/>

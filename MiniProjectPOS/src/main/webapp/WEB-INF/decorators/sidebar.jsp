@@ -36,6 +36,7 @@
 				<ul class="treeview-menu">
 					<li><a href="${contextName}/master/category.html" class="menu-item"><i class="fa fa-circle-o"></i> Kategori</a></li>
 					<li><a href="${contextName}/master/role.html" class="menu-item"><i class="fa fa-circle-o"></i> Role</a></li>
+					<li><a href="${contextName}/master/employee.html" class="menu-item"><i class="fa fa-circle-o"></i> Employee</a></li>
 					<li><a href="${contextName}/master/outlet.html" class="menu-item"><i class="fa fa-circle-o"></i> Outlet</a></li>
 					<li><a href="${contextName}/master/supplier.html" class="menu-item"><i class="fa fa-circle-o"></i> Supplier</a></li>
 					<li><a href="${contextName}/master/item.html" class="menu-item"><i class="fa fa-circle-o"></i> Item</a></li>

@@ -121,10 +121,11 @@
 		
 		// simpan data dari form
 		$("#modal-form").on("submit","#form-category", function(){
+			var vData = $(this).serialize();
 			$.ajax({
 				url:'${contextName}/master/category/save.json',
 				type:'post',
-				data:$(this).serialize(),
+				data:vData,
 				success:function(result){
 					if(result.message=="success"){
 						$("#modal-form").modal("hide");

@@ -65,8 +65,8 @@ public class MstEmployeeDaoImpl implements MstEmployeeDao {
 		emp.setEmail(model.getEmail());
 		emp.setTitle(model.getTitle());
 		emp.setHaveAccount(model.getHaveAccount());
-		emp.setCreateBy(model.getCreatedBy());
-		emp.setCreateOn(model.getCreatedOn());
+		emp.setCreatedBy(model.getCreatedBy());
+		emp.setCreatedOn(model.getCreatedOn());
 		emp.setModifiedBy(model.getModifiedBy());
 		emp.setModifiedOn(model.getModifiedOn());
 		emp.setActive(true);

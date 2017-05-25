@@ -81,18 +81,18 @@ public class MstEmployeeModel {
 	}
 	
 	@Column(name="CREATED_BY")
-	public Long getCreateBy() {
+	public Long getCreatedBy() {
 		return createdBy;
 	}
-	public void setCreateBy(Long createBy) {
+	public void setCreatedBy(Long createBy) {
 		this.createdBy = createBy;
 	}
 	
 	@Column(name="CREATED_ON")
-	public Date getCreateOn() {
+	public Date getCreatedOn() {
 		return createdOn;
 	}
-	public void setCreateOn(Date createOn) {
+	public void setCreatedOn(Date createOn) {
 		this.createdOn = createOn;
 	}
 	

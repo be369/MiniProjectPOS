@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<form id="form-employee" action="" method="POST" class="form">
+<form id="form-employee" action="master/employee/save" method="POST" class="form">
 	<!-- validasi saat save -->
 	<input type="hidden" id="action" name="action" value="insert"/>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -9,13 +9,6 @@
 			<div class="form-group">
 				<label class="control-label" for="firstName">First Name</label>
 				<input type="text" name="firstName" id="firstName" class="form-control"/>
-			</div>
-		</div>
-		
-		<div class="col-md-4">
-			<div class="form-group">
-				<label class="control-label" for="middleName">Midle Name</label>
-				<input type="text" name="middleName" id="middleName" class="form-control"/>
 			</div>
 		</div>
 		
@@ -42,76 +35,8 @@
 			</div>
 		</div>
 		
-		<div class="col-md-4">
-			<div class="form-group">
-				<label class="control-label" for="phone">Phone</label>
-				<input type="text" name="phone" id="phone" class="form-control"/>
-			</div>
-		</div>
 	</div>
-	
-	<div class="row">
-		<div class="col-md-4">
-			<div class="form-group">
-				<label class="control-label" for="provinceId">Propinsi</label>
-				<select id="provinceId" name="provinceId" class="form-control">
-					<option>Select Province</option>
-					<c:forEach var="province" items="${provinceList}">
-						<option value="${province.id}"> ${province.name} </option>
-					</c:forEach>
-				</select>
-			</div>
-		</div>
-		
-		<div class="col-md-4">
-			<div class="form-group">
-				<label class="control-label" for="regionId">Region</label>
-				<select id="regionId" name="regionId" class="form-control">
-					<option>Select Region</option>
-				</select>
-			</div>
-		</div>
-		
-		<div class="col-md-4">
-			<div class="form-group">
-				<label class="control-label" for="districtId">District</label>
-				<select id="districtId" name="districtId" class="form-control">
-					<option>Select Region</option>
-				</select>
-			</div>
-		</div>
-	</div>
-	
-	<div class="row">
-		<div class="col-md-4">
-			<div class="form-group">
-				<label class="control-label" for="villageId">Village</label>
-				<select id="villageId" name="villageId" class="form-control">
-					<option>Select Village</option>
-				</select>
-			</div>
-		</div>
-		
-		<div class="col-md-4">
-			<div class="form-group">
-				<label class="control-label" for="address">Address</label>
-				<input type="text" name="address" id="address" class="form-control"/>
-			</div>
-		</div>
-		
-		<div class="col-md-4">
-			<div class="form-group">
-				<label class="control-label" for="dateOfBirth">Date Of Birth</label>
-				<div class="input-group">
-					<div class="input-group-addon">
-						<i class="fa fa-calendar"></i>
-					</div>
-					<input type="text" id="dateOfBirth" name="dateOfBirth" class="form-control date-picker" />
-				</div>
-			</div>
-		</div>
-	</div>
-	
+					
 	<div class="row">
 		<div class="form-group col-md-10">
 			<div class="checkbox">
