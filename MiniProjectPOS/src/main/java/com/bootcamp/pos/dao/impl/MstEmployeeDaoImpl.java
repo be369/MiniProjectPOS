@@ -40,7 +40,7 @@ public class MstEmployeeDaoImpl implements MstEmployeeDao {
 	}
 
 	@Override
-	public MstEmployeeModel getById(Integer id) throws Exception {
+	public MstEmployeeModel getById(long id) throws Exception {
 		Session session = sessionFactory.getCurrentSession();
 		MstEmployeeModel result = session.get(MstEmployeeModel.class, id);
 		return result;

@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <c:forEach var="item" items="${list}">
 	<tr>
-		<td>${item.id }</td>
 		<td>${item.firstName }&nbsp; ${item.lastName }</td>
 		<td>${item.email }</td>
 		<td>${item.title }</td>

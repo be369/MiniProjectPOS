@@ -1,7 +1,7 @@
 <p>
 	Anda yakin akan menghapus data employee ${item.firstName }&nbsp; ${item.lastName }
 </p>
-<form id="form-employee" action="master/employee/save" method="post" class="form-horizontal">
+<form id="form-employee" action="" method="post" class="form-horizontal">
 
 	<input type="hidden" id="action" name="action" value="delete"/>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

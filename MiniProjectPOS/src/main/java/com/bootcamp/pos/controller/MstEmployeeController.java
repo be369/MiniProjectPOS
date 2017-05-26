@@ -23,7 +23,7 @@ import com.bootcamp.pos.viewmodel.MstEmployeeViewModel;
 
 
 @Controller
-public class MstEmployeeController {
+public class MstEmployeeController extends BaseController {
 
 	private Log log = LogFactory.getLog(getClass());
 	
@@ -67,7 +67,7 @@ public class MstEmployeeController {
 	
 	@RequestMapping(value = "/master/employee/delete")
 	public ModelAndView delete(Model model, HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
+		long id = Integer.parseInt(request.getParameter("id"));
 		MstEmployeeModel result = new MstEmployeeModel();
 		try {
 			result = this.service.getById(id);
@@ -106,21 +106,29 @@ public class MstEmployeeController {
 	public String save(Model model,@ModelAttribute MstEmployeeModel employee, @ModelAttribute MstEmployeeViewModel employeeV, HttpServletRequest request){
 		String result = "";
 		String action = request.getParameter("action");
+		String account = request.getParameter("haveAccount");
 		try {
 			if (action.equals("insert")) {
-				employee.setCreatedBy((long) 1);
-				employee.setCreatedOn(new Date());
-				employee.setModifiedBy((long) 1);
-				employee.setModifiedOn(new Date());
-				employee.setActive(true);
-				
+				if(account.equals("true")){
+					employeeV.setCreatedBy((long) 1);
+					employeeV.setCreatedOn(new Date());
+					employeeV.setModifiedBy((long) 1);
+					employeeV.setModifiedOn(new Date());
+					employeeV.setActive(true);
+				}else{
+					employeeV.setHaveAccount(false);
+					employeeV.setCreatedBy((long) 1);
+					employeeV.setCreatedOn(new Date());
+					employeeV.setModifiedBy((long) 1);
+					employeeV.setModifiedOn(new Date());
+					employeeV.setActive(true);
+				}
 				this.service.insert(employeeV);
 			} else if (action.equals("update")){
 				employee.setModifiedBy((long) 1);
 				employee.setModifiedOn(new Date());
-				this.service.insert(employeeV);
-				this.service.update(employee);
-				
+				employee.setActive(true);
+				this.service.update(employee);		
 			}				
 			else if (action.equals("delete")){
 				MstEmployeeModel item = new MstEmployeeModel();

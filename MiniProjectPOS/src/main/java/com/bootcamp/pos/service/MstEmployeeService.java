@@ -9,7 +9,7 @@ public interface MstEmployeeService {
 
 	public List<MstEmployeeModel> get() throws Exception;
 	public List<MstEmployeeModel> search(String keySearch) throws Exception;
-	public MstEmployeeModel getById(int id) throws Exception;
+	public MstEmployeeModel getById(long id) throws Exception;
 	public MstEmployeeModel getByEmail(String email) throws Exception;
 	public void insert(MstEmployeeViewModel model) throws Exception;
 	public void update(MstEmployeeModel model) throws Exception;

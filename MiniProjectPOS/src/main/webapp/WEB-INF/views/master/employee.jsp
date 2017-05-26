@@ -39,7 +39,6 @@
 		<table class="table table-considered">
 			<thead>
 				<tr>
-					<td>ID</td>
 					<td>Name</td>
 					<td>Email</td>
 					<td>Title</td>
@@ -82,19 +81,7 @@
 			});
 		});
 		
-		// ketika provinceId diklick
-		$("#modal-form").on("change","#provinceId", function(){	
-			loadRegion($(this).val());
-		});
-		
-		$("#modal-form").on("change","#regionId", function(){	
-			loadDistrict($(this).val());
-		});
-		
-		$("#modal-form").on("change","#districtId", function(){	
-			loadVillage($(this).val());
-		});
-		
+			
 		// saat haveAccount di checked		
 		$("#modal-form").on("change","#haveAccount", function(){	
 			if(this.checked==true){
@@ -121,7 +108,8 @@
 				}
 			});
 		});
-		
+	
+		//delete
 		$("#list-data").on('click','.btn-delete',function(){
 			var vId = $(this).val();
 			$.ajax({

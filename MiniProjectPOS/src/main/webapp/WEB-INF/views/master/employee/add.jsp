@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<form id="form-employee" action="master/employee/save" method="POST" class="form">
+<form id="form-employee" action="" method="POST" class="form">
 	<!-- validasi saat save -->
 	<input type="hidden" id="action" name="action" value="insert"/>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -24,7 +24,10 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<label class="control-label" for="title">Title</label>
-				<input type="text" name="title" id="title" class="form-control"/>
+				<select id="title" name="title" class="form-control">
+					<option value="Mr.">Mr.</option>
+					<option value="Ms.">Ms.</option>
+				</select>
 			</div>
 		</div>
 		
@@ -42,13 +45,13 @@
 			<div class="checkbox">
 				<label>
 					<input type="checkbox" id="haveAccount" name="haveAccount" value="0">
-					Have Account ?
+					Create Account ?
 				</label>
 			</div>
 		</div>
 	</div>
 	
-	<div class="row" id="role-account">
+	<div class="row" id="role-account" style="display:none">
 		<div class="col-md-4">
 			<div class="form-group">
 				<label class="control-label" for="roleId">Role</label>
@@ -87,4 +90,6 @@
 		autoclose: true,
 		format:'mm/dd/yyyy',
 	});
+	
+	
 </script>

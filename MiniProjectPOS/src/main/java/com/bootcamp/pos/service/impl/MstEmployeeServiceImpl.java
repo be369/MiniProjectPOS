@@ -28,7 +28,7 @@ public class MstEmployeeServiceImpl implements MstEmployeeService {
 	}
 
 	@Override
-	public MstEmployeeModel getById(int id) throws Exception {
+	public MstEmployeeModel getById(long id) throws Exception {
 		// TODO Auto-generated method stub
 		return this.dao.getById(id);
 	}
