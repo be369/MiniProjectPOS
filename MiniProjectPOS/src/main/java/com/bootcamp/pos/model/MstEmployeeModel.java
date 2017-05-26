@@ -84,16 +84,16 @@ public class MstEmployeeModel {
 	public Long getCreatedBy() {
 		return createdBy;
 	}
-	public void setCreatedBy(Long createdBy) {
-		this.createdBy = createdBy;
+	public void setCreatedBy(Long createBy) {
+		this.createdBy = createBy;
 	}
 	
 	@Column(name="CREATED_ON")
 	public Date getCreatedOn() {
 		return createdOn;
 	}
-	public void setCreatedOn(Date createdOn) {
-		this.createdOn = createdOn;
+	public void setCreatedOn(Date createOn) {
+		this.createdOn = createOn;
 	}
 	
 	@Column(name="MODIFIED_BY")
@@ -112,7 +112,7 @@ public class MstEmployeeModel {
 		this.modifiedOn = modifiedOn;
 	}
 	
-	@Column(name="ACTIVE", nullable=false)
+	@Column(name="active", nullable=false)
 	public Boolean getActive() {
 		return active;
 	}
