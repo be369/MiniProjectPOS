@@ -137,7 +137,7 @@
 			});
 		});
 		
-		// save
+		// simpan data dari form
 		$("#modal-form").on("submit","#form-employee", function(){
 			var vData = $(this).serialize();
 			$.ajax({
@@ -150,7 +150,7 @@
 						loadData();
 					}
 				}
-			});		
+			});				
 			return false;
 		});
 	});

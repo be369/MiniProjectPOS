@@ -21,50 +21,49 @@ import com.bootcamp.pos.service.MstEmployeeService;
 import com.bootcamp.pos.service.MstRoleService;
 import com.bootcamp.pos.viewmodel.MstEmployeeViewModel;
 
-
 @Controller
 public class MstEmployeeController {
 
 	private Log log = LogFactory.getLog(getClass());
-	
-	@Autowired private MstEmployeeService service;
-		
-	@Autowired private MstRoleService roleService;
-	
-	@RequestMapping(value="/master/employee")
-	public ModelAndView index(Model model){
+
+	@Autowired
+	private MstEmployeeService service;
+
+	@Autowired
+	private MstRoleService roleService;
+
+	@RequestMapping(value = "/master/employee")
+	public ModelAndView index(Model model) {
 		return new ModelAndView("/master/employee");
 	}
-	
-	@RequestMapping(value="/master/employee/list")
-	public ModelAndView list(Model model){
+
+	@RequestMapping(value = "/master/employee/list")
+	public ModelAndView list(Model model) {
 		List<MstEmployeeModel> result = new ArrayList();
 		try {
 			result = this.service.get();
 		} catch (Exception e) {
-			
-		}		
-		model.addAttribute("list",result);
+
+		}
+		model.addAttribute("list", result);
 		return new ModelAndView("/master/employee/list");
 	}
-	
-	@RequestMapping(value="/master/employee/add")
-	public ModelAndView add(Model model){
-		
-		
+
+	@RequestMapping(value = "/master/employee/add")
+	public ModelAndView add(Model model) {
+
 		List<MstRoleModel> roleList = null;
 		try {
 			roleList = this.roleService.get();
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
-		
+
 		model.addAttribute("roleList", roleList);
 
-		
 		return new ModelAndView("/master/employee/add");
 	}
-	
+
 	@RequestMapping(value = "/master/employee/delete")
 	public ModelAndView delete(Model model, HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
@@ -78,9 +77,9 @@ public class MstEmployeeController {
 
 		return new ModelAndView("/master/employee/delete");
 	}
-	
-	@RequestMapping(value="/master/employee/edit")
-	public ModelAndView edit(Model model, HttpServletRequest request){
+
+	@RequestMapping(value = "/master/employee/edit")
+	public ModelAndView edit(Model model, HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		MstEmployeeModel item = null;
 		try {
@@ -88,22 +87,22 @@ public class MstEmployeeController {
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
-				
+
 		List<MstRoleModel> roleList = null;
 		try {
 			roleList = this.roleService.get();
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
-		
+
 		model.addAttribute("item", item);
 		model.addAttribute("roleList", roleList);
-		
+
 		return new ModelAndView("/master/employee/edit");
 	}
-	
-	@RequestMapping(value="/master/employee/save")
-	public String save(Model model,@ModelAttribute MstEmployeeModel employee, @ModelAttribute MstEmployeeViewModel employeeV, HttpServletRequest request){
+
+	@RequestMapping(value = "/master/employee/save")
+	public String save(Model model, @ModelAttribute MstEmployeeViewModel employee, HttpServletRequest request) {
 		String result = "";
 		String action = request.getParameter("action");
 		try {
@@ -113,16 +112,13 @@ public class MstEmployeeController {
 				employee.setModifiedBy((long) 1);
 				employee.setModifiedOn(new Date());
 				employee.setActive(true);
-				
-				this.service.insert(employeeV);
-			} else if (action.equals("update")){
+				this.service.insert(employee);
+			} else if (action.equals("update")) {
 				employee.setModifiedBy((long) 1);
 				employee.setModifiedOn(new Date());
-				this.service.insert(employeeV);
-				this.service.update(employee);
-				
-			}				
-			else if (action.equals("delete")){
+				this.service.insert(employee);
+
+			} else if (action.equals("delete")) {
 				MstEmployeeModel item = new MstEmployeeModel();
 				int id = Integer.parseInt(request.getParameter("id"));
 				try {
@@ -131,7 +127,7 @@ public class MstEmployeeController {
 					result = "success";
 				} catch (Exception e) {
 					result = "failed";
-				}				
+				}
 			}
 			result = "success";
 		} catch (Exception e) {
@@ -140,7 +136,7 @@ public class MstEmployeeController {
 		}
 
 		model.addAttribute("message", result);
-		
+
 		return "/master/employee/save";
 	}
 }
