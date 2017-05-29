@@ -109,25 +109,18 @@ public class MstEmployeeController extends BaseController {
 		String account = request.getParameter("haveAccount");
 		try {
 			if (action.equals("insert")) {
-				if(account.equals("true")){
 					employeeV.setCreatedBy((long) 1);
 					employeeV.setCreatedOn(new Date());
 					employeeV.setModifiedBy((long) 1);
 					employeeV.setModifiedOn(new Date());
 					employeeV.setActive(true);
-				}else{
-					employeeV.setHaveAccount(false);
-					employeeV.setCreatedBy((long) 1);
-					employeeV.setCreatedOn(new Date());
-					employeeV.setModifiedBy((long) 1);
-					employeeV.setModifiedOn(new Date());
-					employeeV.setActive(true);
-				}
+				
 				this.service.insert(employeeV);
 			} else if (action.equals("update")){
 				employee.setModifiedBy((long) 1);
 				employee.setModifiedOn(new Date());
 				employee.setActive(true);
+				employee.setHaveAccount(true);
 				this.service.update(employee);		
 			}				
 			else if (action.equals("delete")){

@@ -56,7 +56,7 @@
 			<div class="form-group">
 				<label class="control-label" for="roleId">Role</label>
 				<select id="roleId" name="roleId" class="form-control">
-					<option>Select Role</option>
+					<option value="0">Select Role</option>
 					<c:forEach var="role" items="${roleList}">
 						<option value="${role.id}"> ${role.name} </option>
 					</c:forEach>

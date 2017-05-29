@@ -57,6 +57,7 @@ public class MstEmployeeDaoImpl implements MstEmployeeDao {
 
 	@Override
 	public void insert(MstEmployeeViewModel model) throws Exception {
+
 		Session session = sessionFactory.getCurrentSession();
 		// employee
 		MstEmployeeModel emp = new MstEmployeeModel();
@@ -82,20 +83,20 @@ public class MstEmployeeDaoImpl implements MstEmployeeDao {
 				session.save(outletEmp);
 			}
 		}
-		
+
 		// save ke user
-		if(model.getRoleId() > 0 && !model.getUserName().equals("") && !model.getPassword().equals("")){
-		MstUserModel user = new MstUserModel();
-		user.setUsername(model.getUserName());
-		user.setPassword(model.getPassword());
-		user.setEmployeeId(emp.getId());
-		user.setRoleId(model.getRoleId());
-		user.setCreatedBy(model.getCreatedBy());
-		user.setCreatedOn(model.getCreatedOn());
-		user.setModifiedBy(model.getModifiedBy());
-		user.setModifiedOn(model.getModifiedOn());
-		user.setActive(true);
-		session.save(user);
+		if (model.getRoleId() > 0 && !model.getUserName().equals("") && !model.getPassword().equals("")) {
+			MstUserModel user = new MstUserModel();
+			user.setUsername(model.getUserName());
+			user.setPassword(model.getPassword());
+			user.setEmployeeId(emp.getId());
+			user.setRoleId(model.getRoleId());
+			user.setCreatedBy(model.getCreatedBy());
+			user.setCreatedOn(model.getCreatedOn());
+			user.setModifiedBy(model.getModifiedBy());
+			user.setModifiedOn(model.getModifiedOn());
+			user.setActive(true);
+			session.save(user);
 		}
 	}
 
